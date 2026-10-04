@@ -1,22 +1,13 @@
-function Experience({ projects }) {
+export default function Experience() {
   return (
-    <section id="experience" aria-labelledby="experience-title">
-      <h2 id="experience-title">Навчальний досвід</h2>
-      {projects.map((project) => (
-        <article key={project.id}>
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          {project.experience && <p>{project.experience}</p>}
-          {project.topics && (
-            <ul>
-              {project.topics.map((topic) => <li key={topic}>{topic}</li>)}
-            </ul>
-          )}
-          {project.url && <p><a href={project.url}>Код навчального проєкту на GitHub</a></p>}
-        </article>
-      ))}
+    <section>
+      <h2>Навчальний досвід</h2>
+      <h3>Стажування в Appexoft</h3>
+      <p>Разом із командою розробляв застосунок — аналог «Нової пошти».</p>
+      <p>Відповідав за авторизацію користувачів і роботу з access- та refresh-токенами для доступу до застосунку й оновлення сесії.</p>
+      <h3>Лабораторна робота №2 — вебрезюме</h3>
+      <p>Резюме на HTML та React із контролем версій у Git.</p>
+      <p><a href="https://github.com/Markiian-cmd/web_program_mrkn">Код навчального проєкту</a></p>
     </section>
   )
 }
-
-export default Experience

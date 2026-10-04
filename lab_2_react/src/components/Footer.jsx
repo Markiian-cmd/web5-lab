@@ -1,5 +1,3 @@
-function Footer({ name, group, city }) {
-  return <footer><p>{name} · {group} · {city}</p></footer>
+export default function Footer() {
+  return <footer><p><a href="https://github.com/Markiian-cmd">Мій профіль GitHub</a></p></footer>
 }
-
-export default Footer

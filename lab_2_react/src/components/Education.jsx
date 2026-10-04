@@ -1,16 +1,14 @@
-function Education({ profile }) {
+export default function Education() {
   return (
-    <section id="education" aria-labelledby="education-title">
-      <h2 id="education-title">Освіта</h2>
-      <h3>{profile.university}</h3>
+    <section>
+      <h2>Освіта</h2>
+      <h3>Національний університет «Львівська політехніка»</h3>
       <ul>
-        <li>Спеціальність: {profile.specialty}</li>
-        <li>Кафедра: {profile.department}</li>
-        <li>Група: {profile.group}</li>
-        <li>Місто: {profile.city}</li>
+        <li>Спеціальність: F5 «Кібербезпека»</li>
+        <li>Кафедра: захисту інформації</li>
+        <li>Група: КБ-201</li>
+        <li>Місто: Львів</li>
       </ul>
     </section>
   )
 }
-
-export default Education
