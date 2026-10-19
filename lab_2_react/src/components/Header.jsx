@@ -1,6 +1,6 @@
-export default function Header({ name }) {
+export default function Header({ name, theme, isAutoTheme, onThemeToggle, onAutoTheme, onContactOpen }) {
   return (
-    <header id="top" className="bg-[#142b45] text-white">
+    <header id="top" className="bg-[#142b45] text-white dark:bg-slate-900">
       <div className="mx-auto max-w-[1120px] px-5 pt-10 pb-6 sm:px-8 sm:pt-14">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
           <span
@@ -27,7 +27,7 @@ export default function Header({ name }) {
                 href="https://github.com/Markiian-cmd"
                 className="rounded-sm font-semibold text-teal-200 underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-200 motion-reduce:transition-none"
               >
-                Профіль GitHub <span aria-hidden="true">↗</span>
+                Профіль GitHub <span aria-hidden="true">↗︎</span>
               </a>
             </div>
           </div>
@@ -45,6 +45,41 @@ export default function Header({ name }) {
           >
             Досвід
           </a>
+          <a
+            href="#reviews"
+            className="rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+          >
+            Відгуки
+          </a>
+          <button
+            type="button"
+            data-open-contact
+            onClick={onContactOpen}
+            className="cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+          >
+            Зв’язатися
+          </button>
+          <div className="flex flex-wrap items-center gap-2 min-[900px]:ml-auto">
+            <button
+              id="theme-toggle"
+              type="button"
+              onClick={onThemeToggle}
+              aria-pressed={theme === 'dark'}
+              aria-label={theme === 'dark' ? 'Увімкнути світлу тему' : 'Увімкнути темну тему'}
+              className="cursor-pointer rounded-lg border border-white/25 px-3 py-2 text-sm font-medium transition-colors hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            >
+              {theme === 'dark' ? 'Світла тема' : 'Темна тема'}
+            </button>
+            <button
+              id="theme-auto"
+              type="button"
+              onClick={onAutoTheme}
+              aria-pressed={isAutoTheme}
+              className="cursor-pointer rounded-lg border border-white/25 px-3 py-2 text-sm text-slate-200 transition-colors hover:bg-white/10 aria-pressed:border-teal-200 aria-pressed:text-teal-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            >
+              За часом
+            </button>
+          </div>
         </nav>
       </div>
     </header>

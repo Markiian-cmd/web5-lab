@@ -9,6 +9,7 @@
     <style>
       .profile-eyebrow { letter-spacing: 0.16em; }
     </style>
+    <script src="script.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Перейти до змісту</a>
@@ -29,6 +30,12 @@
         <nav class="section-nav" aria-label="Розділи резюме">
           <a href="#education">Освіта</a>
           <a href="#experience">Досвід</a>
+          <a href="#reviews">Відгуки</a>
+          <button type="button" class="nav-button" data-open-contact>Зв’язатися</button>
+          <div class="theme-controls" aria-label="Налаштування теми">
+            <button type="button" class="nav-button" id="theme-toggle" aria-pressed="false">Темна тема</button>
+            <button type="button" class="nav-button theme-auto" id="theme-auto" hidden>За часом</button>
+          </div>
         </nav>
       </div>
     </header>
@@ -86,13 +93,64 @@
           </article>
         </div>
       </section>
+      <section class="resume-section reviews-section" id="reviews" aria-labelledby="reviews-title">
+        <p class="section-kicker">ЗВОРОТНИЙ ЗВ’ЯЗОК</p>
+        <h2 id="reviews-title">Відгуки роботодавців</h2>
+        <p class="section-description">Демонстраційні відгуки із JSONPlaceholder для навчального проєкту, варіант 7.</p>
+        <p id="reviews-status" class="request-status" role="status">Завантажую відгуки…</p>
+        <button type="button" class="secondary-button" id="reviews-retry" hidden>Спробувати ще раз</button>
+        <div class="reviews-list" id="reviews-list" aria-busy="true"></div>
+        <noscript><p>Увімкніть JavaScript, щоб завантажити відгуки та скористатися формою зворотного зв’язку.</p></noscript>
+      </section>
     </main>
     <footer class="page-container page-footer">
       <p>Маркіян Задерецький</p>
       <div class="footer-links">
+        <button type="button" class="text-button" data-open-contact>Написати повідомлення</button>
         <a href="https://github.com/Markiian-cmd">Мій профіль GitHub</a>
         <a href="#top">На початок <span aria-hidden="true">↑</span></a>
       </div>
+      <details class="system-details" id="storage-details">
+        <summary>Інформація про браузер і систему</summary>
+        <p id="system-summary"></p>
+        <p class="storage-note" id="storage-status" role="status"></p>
+        <dl class="storage-entries" id="storage-entries"></dl>
+      </details>
     </footer>
+    <dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title" aria-describedby="contact-description">
+      <div class="dialog-heading">
+        <div>
+          <p class="section-kicker">ЗАЛИШАЙМОСЯ НА ЗВ’ЯЗКУ</p>
+          <h2 id="contact-title">Написати повідомлення</h2>
+        </div>
+        <button type="button" class="dialog-close" id="contact-close" aria-label="Закрити форму">×</button>
+      </div>
+      <p class="section-description" id="contact-description">Заповніть форму — ваше повідомлення надійде мені на пошту. Усі поля обов’язкові.</p>
+      <form id="contact-form" action="https://formspree.io/f/xppqelqw" method="POST">
+        <div class="form-field">
+          <label for="contact-name">Ім’я</label>
+          <input id="contact-name" name="name" autocomplete="name" maxlength="100" required>
+        </div>
+        <div class="form-columns">
+          <div class="form-field">
+            <label for="contact-email">Електронна пошта</label>
+            <input id="contact-email" name="email" type="email" autocomplete="email" maxlength="254" required>
+          </div>
+          <div class="form-field">
+            <label for="contact-phone">Телефон</label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" minlength="7" maxlength="30" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="contact-message">Повідомлення</label>
+          <textarea id="contact-message" name="message" rows="4" maxlength="5000" required></textarea>
+        </div>
+        <p class="request-status" id="contact-status" role="status"></p>
+        <div class="form-actions">
+          <button type="submit" class="primary-button" id="contact-submit">Надіслати</button>
+          <button type="button" class="secondary-button" id="contact-cancel">Закрити</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>
