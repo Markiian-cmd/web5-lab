@@ -63,12 +63,10 @@ export default function Footer({ onContactOpen }) {
 
     saveBrowserInfo()
     window.addEventListener('storage', refreshStorage)
-    window.addEventListener('resume-storage-change', refreshStorage)
     window.addEventListener('online', saveBrowserInfo)
     window.addEventListener('offline', saveBrowserInfo)
     return () => {
       window.removeEventListener('storage', refreshStorage)
-      window.removeEventListener('resume-storage-change', refreshStorage)
       window.removeEventListener('online', saveBrowserInfo)
       window.removeEventListener('offline', saveBrowserInfo)
     }

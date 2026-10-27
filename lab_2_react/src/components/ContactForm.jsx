@@ -49,7 +49,7 @@ export default function ContactForm({ isOpen, onClose }) {
     setStatus('sending')
 
     try {
-      const response = await fetch('https://formspree.io/f/xppqelqw', {
+      const response = await fetch(form.action, {
         method: 'POST',
         body: new FormData(form),
         headers: { Accept: 'application/json' },

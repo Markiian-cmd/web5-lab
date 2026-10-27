@@ -1,4 +1,6 @@
 export default function Header({ name, theme, isAutoTheme, onThemeToggle, onAutoTheme, onContactOpen }) {
+  const navLinkClass = 'rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none'
+
   return (
     <header id="top" className="bg-[#142b45] text-white dark:bg-slate-900">
       <div className="mx-auto max-w-[1120px] px-5 pt-10 pb-6 sm:px-8 sm:pt-14">
@@ -35,19 +37,19 @@ export default function Header({ name, theme, isAutoTheme, onThemeToggle, onAuto
         <nav aria-label="Розділи резюме" className="mt-8 flex flex-wrap gap-3 border-t border-white/15 pt-5">
           <a
             href="#education"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            className={navLinkClass}
           >
             Освіта
           </a>
           <a
             href="#experience"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            className={navLinkClass}
           >
             Досвід
           </a>
           <a
             href="#reviews"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            className={navLinkClass}
           >
             Відгуки
           </a>
@@ -55,7 +57,7 @@ export default function Header({ name, theme, isAutoTheme, onThemeToggle, onAuto
             type="button"
             data-open-contact
             onClick={onContactOpen}
-            className="cursor-pointer rounded-lg px-4 py-2 text-sm font-medium text-slate-200 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-200 motion-reduce:transition-none"
+            className={`cursor-pointer ${navLinkClass}`}
           >
             Зв’язатися
           </button>
